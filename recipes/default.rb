@@ -241,7 +241,7 @@ end
 # resource because the workflow differs between fresh installation and
 # upgrades.  The package scripts will handle this.
 if node['threatstack']['configure_agent'] == false
-  node['threatstack']['cloudsight_service_action'].delete('start')
+  node.override['threatstack']['cloudsight_service_action'].delete('start')
 end
 ruby_block 'manage cloudsight service' do
   block {}
